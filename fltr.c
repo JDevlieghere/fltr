@@ -1,11 +1,12 @@
 #include <stdio.h>
 #include <string.h>
 
-#define COLOR_RESET   "\033[0m"
-#define COLOR_RED     "\033[31m"
+#define COLOR_RESET "\033[0m"
+#define COLOR_RED "\033[31m"
 #define BUFFER_SIZE 1024
 
-void strcatc(char* dest, char c) {
+void strcatc(char* dest, char c)
+{
    while (*dest)
       dest++;
    *dest++ = c;
@@ -46,7 +47,7 @@ int main(int argc, char* argv[])
    char buffer[BUFFER_SIZE];
    while (fgets(buffer, sizeof(buffer), stdin)) {
       char coloredBuffer[BUFFER_SIZE] = "";
-      if(matches(needle, buffer,coloredBuffer)) {
+      if (matches(needle, buffer, coloredBuffer)) {
          printf("%s", coloredBuffer);
       }
    }
