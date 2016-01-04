@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <ctype.h>
 #include <string.h>
 
 #define COLOR_RESET "\033[0m"
@@ -22,7 +23,7 @@ int matches(char* needle, char* haystack, char* coloredHaystack)
 
    unsigned int i = 0, j = 0;
    while (j < hLength) {
-      if (needle[i] == haystack[j]) {
+      if (tolower(needle[i]) == tolower(haystack[j])) {
          strcat(coloredHaystack, COLOR_RED);
          strcatc(coloredHaystack, haystack[j]);
          strcat(coloredHaystack, COLOR_RESET);
